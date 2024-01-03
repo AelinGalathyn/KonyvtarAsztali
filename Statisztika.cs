@@ -92,7 +92,10 @@ namespace KonyvtarAsztali
 
         private void Legtobb()
         {
-            var legtobb = konyvek.GroupBy(x => x.Author).Select(x => new { Author = x.Key, BookCount = x.Count() }).OrderByDescending(x => x.BookCount).FirstOrDefault();
+            var legtobb = konyvek.GroupBy(x => x.Author)
+                .Select(x => new { Author = x.Key, BookCount = x.Count() })
+                .OrderByDescending(x => x.BookCount)
+                .FirstOrDefault();
             Console.WriteLine($"A legtöbb könyvvel rendelkező szerző: {legtobb.Author}");
         }
 
